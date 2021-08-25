@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NVR.CustomerApi.DataLayer\NVR.CustomerApi.DataLayer.csproj" />
+    <ProjectReference Include="..\NVR.CustomerApi.Services\NVR.CustomerApi.Services.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVR.CustomerApi.Api", "NVR.CustomerApi.Api\NVR.CustomerApi.Api.csproj", "{516A0410-090E-406B-804F-B8D5E989ABA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVR.CustomerApi.Services", "NVR.CustomerApi.Services\NVR.CustomerApi.Services.csproj", "{5382FD58-CAA0-49E8-ACBF-CF61B2007F58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVR.CustomerApi.DataLayer", "NVR.CustomerApi.DataLayer\NVR.CustomerApi.DataLayer.csproj", "{1278775E-B80C-4E7B-BA6C-C637DE1C7D1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{516A0410-090E-406B-804F-B8D5E989ABA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{516A0410-090E-406B-804F-B8D5E989ABA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{516A0410-090E-406B-804F-B8D5E989ABA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5382FD58-CAA0-49E8-ACBF-CF61B2007F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5382FD58-CAA0-49E8-ACBF-CF61B2007F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5382FD58-CAA0-49E8-ACBF-CF61B2007F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5382FD58-CAA0-49E8-ACBF-CF61B2007F58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1278775E-B80C-4E7B-BA6C-C637DE1C7D1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1278775E-B80C-4E7B-BA6C-C637DE1C7D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1278775E-B80C-4E7B-BA6C-C637DE1C7D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1278775E-B80C-4E7B-BA6C-C637DE1C7D1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
