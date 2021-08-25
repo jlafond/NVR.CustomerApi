@@ -1,4 +1,5 @@
 ﻿using NVR.CustomerApi.Services.Interfaces;
+using NVR.CustomerApi.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace NVR.CustomerApi.Services.Services
             return new object[1];
         }
 
-        public bool SaveCustomer()
+        public bool SaveCustomer(CustomerModel customer)
         {
             return true;
         }
