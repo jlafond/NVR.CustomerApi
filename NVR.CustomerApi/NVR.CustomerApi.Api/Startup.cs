@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NVR.CustomerApi.Services.Interfaces;
+using NVR.CustomerApi.Services.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,8 @@ namespace NVR.CustomerApi.Api
                 options.AddPolicy("AllowAllOrigins",
                     builder => builder.AllowAnyOrigin());
             });
+
+            services.AddScoped<ICustomerService, CustomerService>();
 
             services.AddSwaggerGen();
         }
