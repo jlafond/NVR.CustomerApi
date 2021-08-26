@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NVR.CustomerApi.DataLayer.Entities;
 using NVR.CustomerApi.DataLayer.Interfaces;
 using System;
@@ -10,31 +12,44 @@ namespace NVR.CustomerApi.DataLayer.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public List<Customer> GetCustomers()
+        private readonly ILogger<CustomerRepository> _logger;
+        public CustomerRepository(ILogger<CustomerRepository> logger)
         {
-            return ReadFromFile();
+            _logger = logger;
         }
+
+        private List<Customer> _customers;
+        public List<Customer> GetCustomers() => _customers != null ? _customers : _customers = ReadFromFile() ?? new List<Customer>();
 
         public bool SaveCustomer(Customer customer)
         {
-            var serialized = JsonConvert.SerializeObject(customer);
+            GetCustomers().Add(customer);
+
+            var serialized = JsonConvert.SerializeObject(_customers);
 
             return WriteToFile(serialized);
+        }
+
+        private string GetFilePath()
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "customers.txt");
+            return Path.Combine(Environment.CurrentDirectory, "customers.txt");
         }
 
         private List<Customer> ReadFromFile()
         {
             try
             {
-                using (StreamReader file = new StreamReader("Path.json"))
+                using (StreamReader file = new StreamReader(GetFilePath()))
                 {
                     var customers = JsonConvert.DeserializeObject<List<Customer>>(file.ReadToEnd());
+
                     return customers;
                 }
             }
             catch(Exception e)
             {
-                //log error
+                _logger.LogError("Error ocurred while retrieving customers.", e);
                 return new List<Customer>();
             }
         }
@@ -43,12 +58,12 @@ namespace NVR.CustomerApi.DataLayer.Repositories
         {
             try
             {
-                System.IO.File.WriteAllText(@"D:\path.txt", json);
+                System.IO.File.WriteAllText(GetFilePath(), json);
                 return true;
             }
             catch (Exception e)
             {
-                //log error
+                _logger.LogError("Error ocurred while saving customer.", e);
                 return false;
             }
         }

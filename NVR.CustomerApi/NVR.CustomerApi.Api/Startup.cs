@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NVR.CustomerApi.DataLayer.Interfaces;
+using NVR.CustomerApi.DataLayer.Repositories;
 using NVR.CustomerApi.Services.Interfaces;
 using NVR.CustomerApi.Services.Services;
 using System;
@@ -27,6 +29,7 @@ namespace NVR.CustomerApi.Api
             });
 
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
 
             services.AddSwaggerGen();
         }
@@ -47,6 +50,13 @@ namespace NVR.CustomerApi.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action}/{id?}");
+            });
 
         }
     }
