@@ -32,7 +32,6 @@ namespace NVR.CustomerApi.DataLayer.Repositories
 
         private string GetFilePath()
         {
-            var path = Path.Combine(Environment.CurrentDirectory, "customers.txt");
             return Path.Combine(Environment.CurrentDirectory, "customers.txt");
         }
 

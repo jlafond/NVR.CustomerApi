@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace NVR.CustomerApi.Api.Controllers
 {
+    [Route("api/[controller]")]
     public class CustomerController : Controller
     {
         private readonly ILogger<CustomerController> _logger;
@@ -20,6 +21,7 @@ namespace NVR.CustomerApi.Api.Controllers
         }
 
         [HttpGet]
+        [Route("get")]
         public IActionResult GetCustomers()
         {
             try
@@ -35,6 +37,7 @@ namespace NVR.CustomerApi.Api.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public IActionResult AddCustomer([FromBody]CustomerModel customer)
         {
             if (!ModelState.IsValid)
