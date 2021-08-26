@@ -28,6 +28,7 @@ Performs Inserts and allows retrieval of customer records.
 * Stores data in customer.txt file within solution, data stored as json.
 
 ## Future ideas
+* Unit Tests
 * Configuration, remove hardcoded values
 * Provide better validation
 * Authorization
