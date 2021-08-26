@@ -7,7 +7,7 @@ namespace NVR.CustomerApi.Services.Interfaces
 {
     public interface ICustomerService
     {
-        public object GetCustomers();
+        public List<CustomerModel> GetCustomers();
         public bool SaveCustomer(CustomerModel customer);
     }
 }
